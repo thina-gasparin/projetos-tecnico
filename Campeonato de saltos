@@ -1,0 +1,50 @@
+def ve(s):
+    while s<0:
+          s=float(input("Resposta inválida! Digite um valor numerico maior que zero(0): "))
+    return s
+def mame (s):
+    global maior, menor
+    if s>maior:
+        maior=s
+    if s<menor:
+        menor=s
+'''fim procedimento'''
+r = input("Deseja iniciar o programa? s/n  ")
+while r.casefold() != "s" and r.casefold() != "n":
+    r = input("Resposta inválida! Digite s ou n: ")
+medac=0
+while r.casefold()=="s":
+    print("\nDigite:")
+    na=input("O nome do Atleta: ")
+    s1=float(input("\nPrimeiro salto (em metros): "))
+    s1=ve(s1)
+    maior=s1
+    menor=s1
+    s2 = float(input("Segundo salto (em metros): "))
+    s2 = ve(s2)
+    mame(s2)
+    s3 = float(input("Terceiro salto (em metros): "))
+    s3 = ve(s3)
+    mame(s3)
+    s4 = float(input("Quarto salto (em metros): "))
+    s4 = ve(s4)
+    mame(s4)
+    s5 = float(input("Quinto salto (em metros): "))
+    s5 = ve(s5)
+    mame(s5)
+    media=(s1+s2+s3+s4+s5-maior-menor)/3
+    print(f"\nMelhor salto: {maior}\nPior salto: {menor}\nMédia dos demais saltos: {media}\n\n")
+    print("_"*80)
+    print("RESULTADO FINAL:")
+    print(f"{na.capitalize()}: {media}")
+    print("_" * 80)
+    if medac<=media:
+        nac=na
+        medac=media
+    r=input("Deseja continuar o programa? s/n  ")
+    while r.casefold() != "s" and r.casefold() != "n":
+        r = input("Resposta inválida! Digite s ou n: ")
+print("\nPrograma finalizado!")
+if medac!=0:
+    print(f"ATLETA CAMPEÃO: {nac.upper()}")
+print("_"*80)
